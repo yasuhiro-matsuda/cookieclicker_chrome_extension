@@ -1,0 +1,39 @@
+﻿{
+    // 拡張機能の名前
+    "name": "クッキーBOT",
+    // この拡張機能のバージョン
+    "version": "1.0",
+    // Chrome拡張のマニフェストのバージョン
+    "manifest_version": 2,
+    // この拡張機能の簡単な説明
+    "description": "クッキーをものすごい勢いでクリックします。",
+    // アイコンのパス
+    "icons": {
+        "48": "image/icon48.png",
+        "128": "image/icon128.png"
+    },
+    // アイコンが出てくるタイプ
+    "browser_action": {
+        "default_icon": {
+            "19": "image/icon19.png"
+        },
+        "default_title": "クッキーBOT"
+    },
+    "permissions": [
+        "tabs", "http://*/*"
+    ],
+    "web_accessible_resources": ["jquery-2.0.3.min.map"],
+    // 一致するサイトでのみ読み込まれる
+    "content_scripts": [
+        {
+            // URLがこの条件に一致する時に発動
+            "matches": ["http://orteil.dashnet.org/cookieclicker/"],
+            // 走るスクリプト
+            "js": ["jquery-2.0.3.min.js", "cookie.js"]
+        }
+    ],
+    // Chromeの裏で実行されてる
+    "background": {
+        "scripts": ["jquery-2.0.3.min.js", "background.js"]
+    }
+}
